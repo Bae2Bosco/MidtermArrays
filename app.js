@@ -28,16 +28,38 @@ var list = [
     }
 ];
 
-for(var i=0; i<list.length; i++){
-    var ele = document.createElement("div");
-    var nameEle = document.createElement("h2");
-    var ageEle = document.createElement("h4")
-    nameEle.innerHTML="Name: "+list[i].name;
-    ageEle.innerHTML="Age: "+list[i].age;
-    if(list[i].age>25){
-        ageEle.innerHTML.fontcolor("green");
+function renderList(){
+    wrapperEle.innerHTML="";
+    for(var i=0; i<list.length; i++) {
+        var ele = document.createElement("div");
+        var nameEle = document.createElement("h2");
+        var ageEle = document.createElement("h4")
+        nameEle.innerHTML = "Name: " + list[i].name;
+        ageEle.innerHTML = "Age: " + list[i].age;
+        if (list[i].age > 25) {
+            ageEle.style.color = "green";
+        }
+        ele.appendChild(nameEle);
+        ele.appendChild(ageEle);
+        wrapperEle.appendChild(ele);
+
     }
-    ele.appendChild(nameEle);
-    ele.appendChild(ageEle);
-    wrapperEle.appendChild(ele);
 }
+
+
+renderList();
+
+document.body.querySelector(".butt").addEventListener("Click", function (){
+    var count = 0;
+
+    function increment(var1){
+        count++;
+        if (var1==1)
+        {document.getElementById("age").value = count};
+    }
+})
+
+
+
+
+
